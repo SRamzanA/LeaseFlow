@@ -1,0 +1,10 @@
+.header__feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4vw;
+}
+
+.header__feature > a {
+    margin-left: 1vw;
+}

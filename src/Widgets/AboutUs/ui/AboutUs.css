@@ -1,0 +1,41 @@
+.about-us-page-background {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-us-page-background > img {
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+    object-fit: cover;
+}
+
+.about-us {
+    position: relative;
+}
+
+.about-us__text {
+    width: 40vw;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    color: var(--main-color-white);
+}
+
+.about-us__text > h1,
+.about-us__text > h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 100%;
+}
+
+.about-us__text > h2 {
+    margin-top: 5rem;
+}
+
+.about-us__text > p {
+    font-size: 1.3rem;
+}

@@ -1,0 +1,17 @@
+:root{
+    --main-bg-color: #282423;
+    --main-color-white: #F1F1F1;
+    --main-color-orange: #E28911;
+    --header-bg-color: #E3E3E3;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    background-color: var(--main-bg-color);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

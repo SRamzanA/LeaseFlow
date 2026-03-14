@@ -1,0 +1,37 @@
+.intro {
+    position: relative;
+}
+
+.intro__text {
+    width: 35%;
+    position: absolute;
+    top: 20%;
+    left: 4vw;
+    color: var(--main-color-white);
+}
+
+.intro__text > h1 {
+    font-size: 6rem;
+    font-weight: 600;
+}
+
+.intro__text > h3 {
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 110%;
+}
+
+.intro-page-background {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.intro-page-background > img {
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+    object-fit: cover;
+}

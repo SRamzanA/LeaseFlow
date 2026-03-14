@@ -1,0 +1,17 @@
+.button-goto-car-selection {    
+    width: 13vw;
+    height: 3vw;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 1.3vw;
+    position: absolute;
+    background-color: var(--main-color-orange);
+    font-size: 1rem;
+    color: var(--main-text-color-white);
+    transition: 0.3s;
+}
+
+.button-goto-car-selection:hover {
+    opacity: 0.8;
+}
