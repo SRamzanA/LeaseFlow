@@ -1,0 +1,19 @@
+.item__reverse-button {
+    width: 90%;
+    height: 2rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+    background-color: var(--main-color-white);
+    color: var(--text-black-color);
+    border: 0.1rem var(--text-black-color) solid;
+    border-radius: 0.5vw;
+    cursor: pointer;
+}
+.item__reverse-button {
+    width: 60%;
+    margin-bottom: 2rem;
+}

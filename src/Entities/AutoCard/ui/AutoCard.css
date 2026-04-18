@@ -1,0 +1,128 @@
+.cards-container__item {
+    width: 24%;
+    height: 65vh;
+    background-color: var(--main-color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    margin-right: 1%;
+    position: relative;
+    color: var(--text-black-color);
+    transition: 0.6s all;
+    transform-style: preserve-3d;
+}
+
+.reverse-180deg {
+    transform: rotateY(180deg);
+}
+
+/* == Front Content == */
+
+.item__front-content {
+    width: calc(100% - 2rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1vw;
+    backface-visibility: hidden;
+}
+
+.item__image {
+    box-sizing: border-box;
+    width: calc(100%);
+    height: 35vh;
+    object-fit: cover;
+    border: 0.2rem var(--text-black-color) solid;
+    pointer-events: none;
+}
+
+.item__mark {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.item__model-and-price {
+    width: calc(100%);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.item__buttons-container {
+    width: calc(100%);
+}
+
+.item__submit-button {
+    width: 90%;
+    height: 2rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+    background-color: var(--main-color-white);
+    color: var(--text-black-color);
+    border: 0.1rem var(--text-black-color) solid;
+    border-radius: 0.5vw;
+    cursor: pointer;
+}
+
+/* == Back Content == */
+
+.item__back-content {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: calc(100%);
+    height: 100%;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1vw;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    overflow: auto;
+    border: 0.2rem var(--main-color-orange) solid;
+    box-sizing: border-box;
+}
+
+/* Когда карточка перевернута - убераем взаимодействие с лицевой стороной */
+.cards-container__item.reverse-180deg .item__front-content {
+    pointer-events: none;
+}
+
+/* Включаем взаимодействие с обратной стороной */
+.cards-container__item.reverse-180deg .item__back-content {
+    pointer-events: auto;
+}
+
+.item__back-content::-webkit-scrollbar {
+    background-color: var(--main-color-white);
+    display: flex;
+    align-items: center;
+}
+
+.item__back-content::-webkit-scrollbar-thumb {
+    background-color: var(--main-color-orange);
+    border-radius: 1rem;
+    border: 0.2rem var(--main-color-white) solid;
+}
+
+.item__statistic-title {
+    font-size: 1.5rem;
+}
+
+hr {
+    width: 50%;
+}
+
+ul {
+    margin-bottom: 2rem;
+}
+
+li {
+    font-size: 1.2rem;
+}

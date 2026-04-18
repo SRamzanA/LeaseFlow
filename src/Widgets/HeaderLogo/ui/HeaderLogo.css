@@ -3,8 +3,8 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: black;
-    margin-left: 4vw;
+    color: #0F0F0F;
+    margin-left: var(--main-side-padding);
 }
 
 .header__logo > span {

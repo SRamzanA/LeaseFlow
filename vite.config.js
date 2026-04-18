@@ -5,3 +5,19 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 })
+
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
+
+// export default defineConfig({
+//   plugins: [react()],
+//   server: {
+//     proxy: {
+//       '/api/carsxe': {
+//         target: 'https://apiauto.ru/1.0',
+//         changeOrigin: true,
+//         rewrite: (path) => path.replace(/^\/api\/carsxe/, '')
+//       }
+//     }
+//   }
+// })

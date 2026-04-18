@@ -2,6 +2,7 @@ import './HomePage.css'
 import Header from '../../../Widgets/Header/ui/Header'
 import IntroSection from '../../../Widgets/IntroSection/ui/IntroSection'
 import AboutUs from '../../../Widgets/AboutUs/ui/AboutUs'
+import Footer from '../../../Shared/Footer/ui/Footer'
 
 export default function HomePage() {
   return (
@@ -13,9 +14,7 @@ export default function HomePage() {
         <AboutUs />
       </main>
 
-      <footer>
-        <h1>FOOTER</h1>
-      </footer>
+      <Footer />      
 
     </>
   )
