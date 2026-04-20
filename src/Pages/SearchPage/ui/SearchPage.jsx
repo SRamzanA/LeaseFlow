@@ -1,28 +1,18 @@
 import './SearchPage.css'
 import Header from "../../../Widgets/Header/ui/Header"
 import AutoCard from '../../../Entities/AutoCard/ui/AutoCard';
+import Footer from '../../../Widgets/Footer/ui/Footer';
+import CarCategories from '../../../Widgets/CarCategories/ui/CarCategories';
+import Filter from '../../../Widgets/Filter/ui/Filter';
 
-import { passengerCarsObj, LCVCarsObj } from '../../../Shared/api/client'
+import { passengerCarsObj } from '../../../Shared/api/client'
 import { useState } from 'react';
-
-import passengerCarImage from '../images/Легковые.png'
-import LCVCarImage from '../images/Грузовики.png'
-import CommerceCarImage from '../images/Коммерческие.png'
-import BusAutoImage from '../images/Автобусы.png'
-import SpecialCarImage from '../images/Спецтехника.png'
-import TrailerCarsImage from '../images/Прицепы.png'
-import MotoCarImage from '../images/Мототехника.png'
-
 
 
 export default function SearchPage() {
-  const [category, setCategory] = useState(passengerCarsObj)
+  const [fullCars, setFullCars] = useState(passengerCarsObj) // Все машины
+  const [category, setCategory] = useState(passengerCarsObj) // Изменяемый список машин (фильтрацией)
   const [visibleCount, setVisibleCount] = useState(8)
-
-  function updateCategory(typeCategory) {
-    setCategory(typeCategory)
-    setVisibleCount(8)
-  }
 
   return (
     <>
@@ -31,52 +21,21 @@ export default function SearchPage() {
       <main className='search-page-main'>
         <h1>Популярные Авто</h1>
 
-        <div className="category">
-          <button className="category__item" onClick={() => updateCategory(passengerCarsObj)}>
-            <span>Легковые</span>
-            <img src={passengerCarImage} alt="" />
-          </button>
+        <CarCategories
+          setFullCars={setFullCars}
+          setCategory={setCategory}
+          setVisibleCount={setVisibleCount}
+        />
 
-          <button className="category__item" onClick={() => updateCategory(LCVCarsObj)}>
-            <span>Грузовые и LCV</span>
-            <img src={LCVCarImage} alt="" />
-          </button>
-
-          <button className="category__item" onClick={() => updateCategory("noCategory")}>
-            <span>Коммерческие</span>
-            <img src={CommerceCarImage} alt="" />
-          </button>
-
-          <button className="category__item" onClick={() => updateCategory("noCategory")}>
-            <span>Автобусы</span>
-            <img src={BusAutoImage} alt="" />
-          </button>
-
-          <button className="category__item" onClick={() => updateCategory("noCategory")}>
-            <span>Спецтехника</span>
-            <img src={SpecialCarImage} alt="" />
-          </button>
-
-          <button className="category__item" onClick={() => updateCategory("noCategory")}>
-            <span>Прицепы и полуприцепы</span>
-            <img src={TrailerCarsImage} alt="" />
-          </button>
-
-          <button className="category__item" onClick={() => updateCategory("noCategory")}>
-            <span>Мототехника</span>
-            <img src={MotoCarImage} alt="" />
-          </button>
-
-        </div>
-
-        <div className="filter">
-          Фильтр
-          {/* выборка с Марка, Модель, Кузов, Коробка передач, Цена, Двигатель, Привод, Объём бака */}
-        </div>
+        <Filter
+          fullCars={fullCars}
+          category={category}
+          setCategory={setCategory}
+        />
 
         <div className="cards-container">
           {
-            category == "noCategory"
+            category.length == 0
               ?
               <span className='data-undefined'>Не найдено информации по данной категории</span>
               :
@@ -87,7 +46,7 @@ export default function SearchPage() {
         </div>
 
         {
-          category != "noCategory" &&
+          category.length != 0 &&
           <div className="button-container">
             <button className="show-more-button"
               onClick={() => setVisibleCount(visibleCount + 4)}
@@ -99,6 +58,10 @@ export default function SearchPage() {
 
       </main>
 
+      <Footer />
+
+      {/* Сделай фотки при нажатии на картинку */}
+      {/* Нужна фильтрация */}
     </>
   );
 }
