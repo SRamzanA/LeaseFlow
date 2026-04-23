@@ -29,7 +29,6 @@ export default function SearchPage() {
 
         <Filter
           fullCars={fullCars}
-          category={category}
           setCategory={setCategory}
         />
 
@@ -39,7 +38,7 @@ export default function SearchPage() {
               ?
               <span className='data-undefined'>Не найдено информации по данной категории</span>
               :
-              Array.from({ length: visibleCount }, (_, index) => (
+              Array.from({ length: Math.min(visibleCount, category.length) }, (_, index) => (
                 <AutoCard key={category[index].id} index={index} data={category} />
               ))
           }
