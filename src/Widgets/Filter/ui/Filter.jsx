@@ -1,5 +1,6 @@
 import './Filter.css'
 
+// Данные с полей
 let markFilter = ""
 let modelFilter = ""
 let bodyTypeFilter = ""
@@ -13,13 +14,14 @@ export default function Filter({ fullCars, setCategory }) {
     let filteredCategory = fullCars
 
     // Данные в datalist
+    // Для помощи заполнения полей
     let marks = []
     let models = []
     let bodyTypes = []
     let transmissions = []
     let engineTypes = []
     let driveTypes = []
-    
+
     filteredCategory.map(item => {
         marks.push(item.mark)
         models.push(item.model)
@@ -29,6 +31,7 @@ export default function Filter({ fullCars, setCategory }) {
         driveTypes.push(item.drive_type)
     })
 
+    // Убираем повторы значений
     marks = [...new Set(marks)]
     models = [...new Set(models)]
     bodyTypes = [...new Set(bodyTypes)]
@@ -38,7 +41,7 @@ export default function Filter({ fullCars, setCategory }) {
 
     function checkFilters() {
         filteredCategory = fullCars // сбрасываем до исходных данных
-        
+
         if (markFilter) {
             filteredCategory = filteredCategory.filter(item => item.mark.toUpperCase().includes(markFilter.toUpperCase()))
         }
@@ -61,7 +64,7 @@ export default function Filter({ fullCars, setCategory }) {
             filteredCategory = filteredCategory.filter(item => item.drive_type && item.drive_type.toUpperCase().includes(driveTypeFilter.toUpperCase()))
         }
         if (horsePowerFilter > 0) {
-            filteredCategory = filteredCategory.filter(item => item.horse_power < horsePowerFilter)
+            filteredCategory = filteredCategory.filter(item => item.horse_power > horsePowerFilter)
         }
 
         setCategory(filteredCategory)
@@ -69,6 +72,7 @@ export default function Filter({ fullCars, setCategory }) {
 
     return (
         <div className="filter">
+            {/* Марка */}
             <input list='marks' type="text" className='filter__input' placeholder='Марка (доступная в категории)'
                 onChange={(e) => {
                     markFilter = e.target.value
@@ -79,6 +83,7 @@ export default function Filter({ fullCars, setCategory }) {
                 {marks.map(mark => <option key={mark}>{mark}</option>)}
             </datalist>
 
+            {/* Модель */}
             <input list='models' type="text" className='filter__input' placeholder='Модель'
                 onChange={(e) => {
                     modelFilter = e.target.value
@@ -89,6 +94,7 @@ export default function Filter({ fullCars, setCategory }) {
                 {models.map(model => <option key={model}>{model}</option>)}
             </datalist>
 
+            {/* Кузов */}
             <input list='bodyTypes' type="text" className='filter__input' placeholder='Кузов'
                 onChange={(e) => {
                     bodyTypeFilter = e.target.value
@@ -99,6 +105,7 @@ export default function Filter({ fullCars, setCategory }) {
                 {bodyTypes.map(type => <option key={type}>{type}</option>)}
             </datalist>
 
+            {/* Коробка передач */}
             <input list='transmissions' type="text" className='filter__input' placeholder='Коробка передач'
                 onChange={(e) => {
                     transmissionFilter = e.target.value
@@ -109,6 +116,7 @@ export default function Filter({ fullCars, setCategory }) {
                 {transmissions.map(trans => <option key={trans}>{trans}</option>)}
             </datalist>
 
+            {/* Цена */}
             <input type="number" className='filter__input' placeholder='Цена (максимум)'
                 onChange={(e) => {
                     priceRubFilter = Number(e.target.value)
@@ -116,6 +124,7 @@ export default function Filter({ fullCars, setCategory }) {
                 }}
             />
 
+            {/* Двигатель */}
             <input list='engineTypes' type="text" className='filter__input' placeholder='Двигатель'
                 onChange={(e) => {
                     engineTypeFilter = e.target.value
@@ -126,6 +135,7 @@ export default function Filter({ fullCars, setCategory }) {
                 {engineTypes.map(type => <option key={type}>{type}</option>)}
             </datalist>
 
+            {/* Привод */}
             <input list='driveTypes' type="text" className='filter__input' placeholder='Привод'
                 onChange={(e) => {
                     driveTypeFilter = e.target.value
@@ -136,7 +146,8 @@ export default function Filter({ fullCars, setCategory }) {
                 {driveTypes.map(type => <option key={type}>{type}</option>)}
             </datalist>
 
-            <input type="number" className='filter__input' placeholder='Мощность (максимум, л.с.)'
+            {/* Мощность */}
+            <input type="number" className='filter__input' placeholder='Мощность (минимум, л.с.)'
                 onChange={(e) => {
                     horsePowerFilter = Number(e.target.value)
                     checkFilters()

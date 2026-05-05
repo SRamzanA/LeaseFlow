@@ -3,7 +3,7 @@ import './AutoCard.css'
 
 import { useRef } from 'react'
 
-export default function AutoCard({ index, data }) {
+export default function AutoCard({ index, data, setOpenPopup }) {
     const card = useRef(null)
     const item = data[index]
 
@@ -21,7 +21,7 @@ export default function AutoCard({ index, data }) {
                 </div>
 
                 <div className="item__buttons-container">
-                    <button className='item__submit-button'>Оставить заявку</button>
+                    <button className='item__submit-button' onClick={() => setOpenPopup('flex')}>Оставить заявку</button>
                     <CardReverseButton card={card}>Подробнее</CardReverseButton>
                 </div>
 
@@ -55,9 +55,10 @@ export default function AutoCard({ index, data }) {
                     <li>{item.city}</li>
                     <li>{item.owners_count} владельцев</li>
                     <li>ПТС: {item.pts}</li>
+                    <li><a href={item.url}>Предложение на авто.ру</a></li>
                 </ul>
                 <div className="item__buttons-container">
-                    <button className='item__submit-button'>Оставить заявку</button>
+                    <button className='item__submit-button' onClick={() => setOpenPopup('flex')}>Оставить заявку</button>
                     <CardReverseButton card={card}>Обратно</CardReverseButton>
                 </div>
                 

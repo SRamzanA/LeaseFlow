@@ -7,19 +7,22 @@ import Filter from '../../../Widgets/Filter/ui/Filter';
 
 import { passengerCarsObj } from '../../../Shared/api/client'
 import { useState } from 'react';
+import PopupSubmitApplication from '../../../Widgets/PopupSubmitApplication/PopupSubmitApplication';
+import LeaseCalculator from '../../../Widgets/LeaseCalculator/ui/LeaseCalculator';
 
 
 export default function SearchPage() {
   const [fullCars, setFullCars] = useState(passengerCarsObj) // Все машины
   const [category, setCategory] = useState(passengerCarsObj) // Изменяемый список машин (фильтрацией)
   const [visibleCount, setVisibleCount] = useState(8)
+  const [openPopup, setOpenPopup] = useState('none')
 
   return (
     <>
       <Header />
 
       <main className='search-page-main'>
-        <h1>Популярные Авто</h1>
+        <h1>Популярные предложения на автомобили и технику</h1>
 
         <CarCategories
           setFullCars={setFullCars}
@@ -39,7 +42,12 @@ export default function SearchPage() {
               <span className='data-undefined'>Не найдено информации по данной категории</span>
               :
               Array.from({ length: Math.min(visibleCount, category.length) }, (_, index) => (
-                <AutoCard key={category[index].id} index={index} data={category} />
+                <AutoCard
+                  key={category[index].id}
+                  index={index}
+                  data={category}
+                  setOpenPopup={setOpenPopup}
+                />
               ))
           }
         </div>
@@ -55,12 +63,22 @@ export default function SearchPage() {
           </div>
         }
 
+        <LeaseCalculator
+          setOpenPopup={setOpenPopup}
+        />
+
+        <PopupSubmitApplication
+          openPopup={openPopup}
+          setOpenPopup={setOpenPopup}
+        />
+
       </main>
 
       <Footer />
 
-      {/* Сделай фотки при нажатии на картинку */}
-      {/* Нужна фильтрация */}
+      {/* избранное */}
+      {/* калькулятор лизинга */}
+      {/* фотки при нажатии на картинку */}
     </>
   );
 }

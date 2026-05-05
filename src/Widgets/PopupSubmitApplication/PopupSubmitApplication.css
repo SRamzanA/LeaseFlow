@@ -1,0 +1,182 @@
+.popup {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: #00000048;
+    z-index: 100;
+    transition: 0.5s;
+}
+
+.popup__container {
+    width: 50vw;
+    height: 30vw;
+    background-color: #fff;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3vw;
+    box-sizing: border-box;
+    border-radius: 1vw;
+    color: var(--text-black-color);
+    position: relative;
+}
+
+.popup__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup__title {
+    font-size: 2.5rem;
+}
+
+/* Кнопка закрытия попапа */
+.popup__close-button {
+    width: 2vw;
+    height: 2vw;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+.stick1 {
+    position: absolute;
+    width: 2vw;
+    height: 0.2vw;
+    background-color: var(--text-black-color);
+    transform: rotate(45deg);
+}
+.stick2 {
+    position: absolute;
+    width: 2vw;
+    height: 0.2vw;
+    background-color: var(--text-black-color);
+    transform: rotate(-45deg);
+}
+
+/* Контейнер с radio-input */
+.popup__face-selection {
+    width: 100%;
+    background-color: #f2f5f7;
+    box-sizing: border-box;
+    padding: 1.5vw 1vw 1.5vw 1vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    border-radius: 0.5vw;
+}
+
+.popup__form-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.popup__face-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.popup__face-inputs > span {
+    width: 0.1vw;
+    height: 1.5vw;
+    background-color: #999;
+    margin-right: 1vw;
+}
+
+.popup__radio-input {
+    font-size: 1.1rem;
+    margin-right: 1vw;
+    display: flex;
+    align-items: center;
+}
+
+.popup__radio-input > input {
+    appearance: none;
+    width: 1.5vw;
+    height: 1.5vw;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 0.1vw solid #999;
+    margin-right: 0.3vw;
+    accent-color: var(--main-color-orange);
+    background-color: #fff;
+}
+
+.popup__radio-input > input:active {
+    background-color: #d2d2d2;
+}
+
+.popup__radio-input > input:checked {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup__radio-input > input:checked::after {
+    content: '';
+    position: absolute;
+    width: 0.9vw;
+    height: 0.9vw;
+    border-radius: 50%;
+    background-color: var(--main-color-orange);
+}
+
+.popup__name-and-phone-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5vw;
+}
+
+.popup__text-input {
+    width: 48%;
+    height: 4vw;
+    padding-left: 0.7vw;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #999;
+}
+
+.popup__submit-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup__submit-button {
+    width: 50%;
+    height: 3.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #999;
+    background-color: var(--main-color-orange);
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.5vw;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.popup__submit-button:hover {
+    opacity: 0.9;
+}
+
+.popup__red-text {
+    font-size: 1rem;
+    color: #999;
+}
