@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    background-color: #00000048;
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 100;
     transition: 0.5s;
 }
@@ -57,6 +57,7 @@
     background-color: var(--text-black-color);
     transform: rotate(45deg);
 }
+
 .stick2 {
     position: absolute;
     width: 2vw;
@@ -87,7 +88,7 @@
     align-items: center;
 }
 
-.popup__face-inputs > span {
+.popup__face-inputs>span {
     width: 0.1vw;
     height: 1.5vw;
     background-color: #999;
@@ -101,7 +102,7 @@
     align-items: center;
 }
 
-.popup__radio-input > input {
+.popup__radio-input>input {
     appearance: none;
     width: 1.5vw;
     height: 1.5vw;
@@ -113,18 +114,18 @@
     background-color: #fff;
 }
 
-.popup__radio-input > input:active {
+.popup__radio-input>input:active {
     background-color: #d2d2d2;
 }
 
-.popup__radio-input > input:checked {
+.popup__radio-input>input:checked {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.popup__radio-input > input:checked::after {
+.popup__radio-input>input:checked::after {
     content: '';
     position: absolute;
     width: 0.9vw;

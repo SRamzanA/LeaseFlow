@@ -39,7 +39,7 @@
     height: 35vh;
     object-fit: cover;
     border: 0.2rem var(--text-black-color) solid;
-    pointer-events: none;
+    cursor: pointer;
 }
 
 .item__mark {

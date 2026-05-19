@@ -6,9 +6,9 @@ const parseCSV = async (filePath) => {
 
     return new Promise((resolve) => {
         Papa.parse(csvText, {
-            header: true,
-            delimiter: ",",
-            skipEmptyLines: true,
+            header: true, // первая строка - загловки
+            delimiter: ",", // данные разделяюся по запятой
+            skipEmptyLines: true, // Скип пустых строк
             complete: (results) => {
                 resolve(results.data)
             }
