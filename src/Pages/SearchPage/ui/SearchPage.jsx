@@ -75,9 +75,6 @@ export default function SearchPage() {
       </main>
 
       <Footer />
-
-      {/* избранное */}
-      {/* фотки при нажатии на картинку */}
     </>
   );
 }

@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #0F0F0F;
+    color: var(--text-black-color);
     margin-left: var(--main-side-padding);
 }
 

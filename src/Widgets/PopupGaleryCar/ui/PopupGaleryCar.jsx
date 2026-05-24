@@ -4,7 +4,7 @@ import './PopupGaleryCar.css'
 export default function PopupGaleryCar({ galeryDisplay, imageArray, onClose }) {
     // блокируем прокрутку body при открытии галереи
     useEffect(() => {
-        if (galeryDisplay) { // если открыт
+        if (galeryDisplay) {
             document.body.style.overflow = 'hidden'
         } else {
             document.body.style.overflow = ''

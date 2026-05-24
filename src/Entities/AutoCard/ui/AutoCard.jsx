@@ -78,7 +78,6 @@ export default function AutoCard({ index, data, setOpenPopup }) {
                 </div>
             </div>
 
-            {/* рендерим через портал в body */}
             {createPortal(
                 <PopupGaleryCar
                     galeryDisplay={galeryDisplay}

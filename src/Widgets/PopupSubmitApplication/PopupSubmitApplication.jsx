@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import './PopupSubmitApplication.css'
 
 export default function PopupSubmitApplication({ openPopup, setOpenPopup }) {
-    const [face, setFace] = useState(null) // Юр.лицо/физ.лицо/ИП
+    const [face, setFace] = useState(null)
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
 
