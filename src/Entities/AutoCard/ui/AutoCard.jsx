@@ -12,7 +12,7 @@ export default function AutoCard({ index, data, setOpenPopup }) {
     const [galeryDisplay, setGaleryDisplay] = useState(false)
 
     function openGalery() {
-        setGaleryDisplay(true)
+        JSON.parse(data[index].image_urls).length > 0 && setGaleryDisplay(true)
     }
 
     function closeGalery() {
@@ -24,7 +24,7 @@ export default function AutoCard({ index, data, setOpenPopup }) {
             <div className="cards-container__item" ref={card}>
                 <div className="item__front-content">
                     <img
-                        src={JSON.parse(data[index].image_urls)[0]?.url}
+                        src={JSON.parse(data[index].image_urls).length > 0 ? JSON.parse(data[index].image_urls)[0]?.url : '/placeholder.png'}
                         alt=""
                         className="item__image"
                         onClick={() => openGalery()}
